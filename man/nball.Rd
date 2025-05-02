@@ -3,7 +3,7 @@
 \alias{nball}
 \title{ Number of alleles in a mixture}
 \description{
-  \code{nball} gives the number of alleles of a  \code{simumix} object. 
+  \code{nball} gives the number of alleles of a  \code{simumix} object.
 }
 \usage{
 nball(mix, byloc = FALSE)
@@ -14,7 +14,7 @@ nball(mix, byloc = FALSE)
   \item{byloc}{a logical indicating whether the number of alleles must be calculated by locus  or for all loci (default)}
 }
 
-
+\value{If \code{byloc=TRUE}, the number of alleles by locus; otherwise the sum.}
 
 \author{Hinda Haned  <contact@hindahaned.info>}
 

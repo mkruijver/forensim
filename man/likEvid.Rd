@@ -35,6 +35,7 @@ probability of dropout for homozygotes. See description ofr argument \code{PrDHo
   vector of the corresponding allele frequencies of the analysed locus in the target population}
 }
 
+\value{Numeric likelihood value.}
 
 \references{
 

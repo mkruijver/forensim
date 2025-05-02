@@ -20,6 +20,7 @@ dataL(x = 1, p, theta = 0)
   \item{theta}{ a float  in [0,1[. \code{theta} is equivalent to Wright's Fst. In case of population
   subdivision, it allows a correction of the allele frequencies in the subpopulation of interest}}
 
+\value{Numeric likelihood value.}
 
 \references{
 

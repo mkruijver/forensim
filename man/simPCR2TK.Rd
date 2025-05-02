@@ -12,13 +12,14 @@ for the polymorphism chain reaction.
 simPCR2TK()
 }
 
+\value{No return value, called to show GUI.}
 
 \references{
-Gill P, Curran J and Elliot K. A graphical simulation model of the entire DNA process associated with the analysis of short 
+Gill P, Curran J and Elliot K. A graphical simulation model of the entire DNA process associated with the analysis of short
 tandem repeat loci.\emph{ Nucleic Acids Research} 2005, 33(2): 632-643.
 }
 
-\seealso{ \code{\link{simPCR2}}}  
+\seealso{ \code{\link{simPCR2}}}
 
 \author{ Hinda Haned  \email{contact@hindahaned.info} }
 

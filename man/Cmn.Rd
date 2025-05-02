@@ -17,7 +17,9 @@ Cmn(m, n)
  There are (n+m-1)!/(m!(n-1)!) ways to combine m elements among n with repetitions.}
 \note{Cmn was implemented as an auxiliary function for the \code{\link{dataL}} function which computes the
 likelihood of the observed alleles in a mixed DNA stain conditional on the number of contributors.}
- 
+
+\value{Numeric with the number of combinations.}
+
 \author{Hinda Haned  <contact@hindahaned.info>}
 
 
