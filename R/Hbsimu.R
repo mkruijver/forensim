@@ -14,25 +14,25 @@
 	font6<-tkfont.create(family="times",size=13)#tkframe entries labels
 	tf <- tktoplevel()
 	tkwm.title(tf,"Hbdemo: heterozygote balance simulation")
-	
-	
-	
-	
+
+
+
+
 	#function Hb
 
 	done <- tclVar(0)
-		
+
 	frame1 <- tkframe(tf, relief="groove", borderwidth=4)
 	labh <- tklabel(tf)
 	#labh <- tklabel(frame1)
 	#tkbind(labh, "<Button-1>", function() 'hh')
-	tkgrid(tklabel(frame1,text="   Heterozygote balance simulator  ", font="courrier 22", 
+	tkgrid(tklabel(frame1,text="   Heterozygote balance simulator  ", font="courrier 22",
 	foreground="darkblue"),labh)
 	#tkbind(frame1)
 	tkpack(frame1)#,padx=10)#,pady=10)
 
-	frame2 <- tkframe(tf, relief="flat", borderwidth=2)#,bg="white")	
-	frame3 <- tkframe(tf, relief="groove", borderwidth=2)#,bg="white")	
+	frame2 <- tkframe(tf, relief="flat", borderwidth=2)#,bg="white")
+	frame3 <- tkframe(tf, relief="groove", borderwidth=2)#,bg="white")
 	# tab.entry <- tkentry(frame2, textvariable=tabnamevar)
 	# file.entry <- tkentry(frame2, textvariable=filenamevar)
 	# choosefile.but <- tkbutton(frame2, text="Set", command=function() print('hh'))
@@ -41,7 +41,7 @@
 	# tkgrid(tklabel(frame2,text="Dataframe to receive the data : "), tab.entry)
 	# varnames.cbut <- tkcheckbutton(frame2,text="Variables names on the first row of data file", variable=varnames)
 	# tkgrid(varnames.cbut, columnspan=2, sticky="w")
-	
+
 	inFrame <- tkframe(frame2, relief="groove", borderwidth=2)
 	inFrame2 <- tkframe(frame2, relief="groove", borderwidth=2)
 	#inFrame3 <- tkframe(frame2, relief="groove", borderwidth=2)
@@ -68,7 +68,7 @@
 	PPCR.entry<-tkentry(inFrame2, textvariable=PPCR, width=4,relief="solid",justify="center")
 	Tcyc.entry<-tkentry(inFrame2, textvariable=Tcyc, width=4,relief="solid",justify="center")
 	Tdrop.entry<-tkentry(inFrame2, textvariable=Tdrop, width=8,relief="solid",justify="center")
-	
+
 	#tkgrid(tklabel(inFrame, text="________________",font=font3,foreground="blue"), columnspan=9)
 	tkgrid(tklabel(inFrame, text="pre-PCR parameters",font=font4,foreground="blue"), columnspan=9)
 	#tkgrid(tklabel(inFrame, text="Number of cells",font=font3,foreground="blue"), columnspan=9)
@@ -78,19 +78,19 @@
 	tkgrid(tklabel(inFrame,text="Prob. extraction",font=font6), Pextrac.entry,sticky="we")
 	tkgrid(tklabel(inFrame,text="Prob. surviving aliquot",font=font6), Paliquot.entry,sticky="we")
 	#tkgrid(tklabel(inFrame, text="________________",font=font3,foreground="blue"), columnspan=9)
-	
+
 	tkgrid(tklabel(inFrame2, text="PCR parameters",font=font4,foreground="blue"), columnspan=9)
 	tkgrid(tklabel(inFrame2,text="Prob. PCR efficiency",font=font6), PPCR.entry,sticky="n")
 	tkgrid(tklabel(inFrame2,text="#PCR cycles",font=font6), Tcyc.entry,sticky="n")#title varibale ncells.entry
 	tkgrid(tklabel(inFrame2,text="Allele detection threshold",font=font6), Tdrop.entry,sticky="n")
 	#tkgrid(tklabel(inFrame2, text="________________",font=font3,foreground="blue"), columnspan=9)
-	
+
 	# tkgrid(tklabel(inFrame3, text="Cells ploidy",font=font4,foreground="blue"), columnspan=9)
 	# dip<-tclVar(TRUE)#ploidy variable, TRUE cells are diploid
 	# hap<-tclVar(0.50)#probability of encountering allele of type A in haploid cells
 	# dip.entry<-tkentry(inFrame3, textvariable=hap, width=4,state="disabled",relief="solid",justify="center")
-	
-	# tkgrid(tkcheckbutton(inFrame3, text="Diploid", variable=dip,font=font6, 
+
+	# tkgrid(tkcheckbutton(inFrame3, text="Diploid", variable=dip,font=font6,
 	# command=function() if (!as.logical(tclObj(dip))) tkconfigure(dip.entry, state="normal") else tkconfigure(dip.entry, state="disabled") ))
 	# tkgrid(tklabel(inFrame3,text="prob. allele A in haploid cells",font=font6), dip.entry,sticky="n")
 
@@ -101,13 +101,13 @@
     tkgrid(inFrame, inFrame2, padx=12,pady=8 )
 	tkgrid(repFrame,padx=8)
 	tkpack(frame2,frame3, pady=18, padx=28)#,side="top")
-	
+
 	#now, the following functions check that the user entered the correct values
-	
-	
+
+
 	ncells.verif<-function()
 	{
-		
+
 		q<-tclvalue(ncells)
 		if(q=='NULL'){return(NULL)}
 		else{
@@ -115,10 +115,10 @@
 			else{return(as.numeric(q))}
 		}
 	}
-	
+
 	varncells.verif<-function()
 	{
-		
+
 		q<-tclvalue(varncells)
 		if(q=='NULL'){return(NULL)}
 		else{
@@ -133,7 +133,7 @@
 		}
 		else{return(p2)}
 	}
-	
+
 	Paliquot.verif<-function()
 	{
 		p3<-as.numeric(tclvalue(Paliquot))
@@ -141,8 +141,8 @@
 		}
 		else{return(p3)}
 	}
-	
-		
+
+
 	PPCR.verif<-function()
 	{
 		p4<-as.numeric(tclvalue(PPCR))
@@ -171,12 +171,12 @@
 		}
 		else{return(p6)}
 	}
-	########### function Hb.local in tcltk 
+	########### function Hb.local in tcltk
 	# main frame
 	Hb.local<-function()
 	{
 		#first, get the parameters, check their validity
-		
+
 		ncells<-ncells.verif()
 		varncells<-varncells.verif()
 		#n<-ncells.verif()
@@ -188,14 +188,14 @@
 		Tdrop<-Tdrop.verif()#allele detection threshold
 		# an then get the results from the pcrsim function
 		# all replicates are concatenated in a singla table
-		
-		
+
+
 		#diploid case
 		nsim<-as.integer(pmax(rnorm(repl,mean=ncells,sd=sqrt(varncells)),1))
 		tab1<-t(sapply(nsim,function(i)simPCR2(i,probEx=p1,probAlq=p2,probPCR=p3,cyc=cyc,dip=TRUE) ))
 		Hbsim<-na.omit(unlist(tab1[,5]))
 		#hist(p1,col="gray",prob=T,xlab="Hb",ylab="dF(x)",cex.lab=1.3,main="Heterozygous balance, mu=1,sd=1\nProbability density function")
-		
+
 		dd <- tktoplevel()
 		frameC <- tkframe(dd, relief="flat", borderwidth=4)
 		tkwm.title(dd,"Hb distribution")
@@ -206,9 +206,9 @@
 		plotHb<-function()
 		{
 			params <- par(bg="white")
+			on.exit(par(params))
 			hist(Hbsim,col="gray",prob=TRUE,xlab="Hb",ylab="f(Hb)",cex.lab=1.3,main="Heterozygote balance\n Probability density function",xlim=c(0,1))
-			par(params)
-		}	
+		}
 
 		img <- tkrplot(frameC,fun= plotHb,hscale=Myhscale,vscale=Myvscale)
 		CopyToClip <- function()
@@ -218,13 +218,13 @@
 		copy.but <- tkbutton(frameC,text="Copy to Clipboard",font="courrier 10",fg="darkblue",command=CopyToClip)
 		tkgrid(img)
 		tkgrid(copy.but)
-			
+
 		tkpack(frameC)
 	}
-		
-		
-		
-	
+
+
+
+
 
 	#Bottom buttons #
 	ok.but <- tkbutton(tf, text="Simulate!", font=font5,fg="darkblue",command=function() Hb.local())

@@ -528,9 +528,9 @@ LRmixTK <-function(verbose = TRUE)
 			{
 				# tkconfigure(dd,cursor="watch")
 				params <- par(bg="white")
+				on.exit(par(params))
 				plot(ecdf(distriLR),xlab='log10 LR',main='Empirical distribution function')
 				grid()
-				par(params)
 			}
 			img <- tkrplot(frameC,fun= Dplot.loc,hscale=Myhscale,vscale=Myvscale)
 			CopyToClip <- function()
@@ -1197,6 +1197,7 @@ write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FA
 				Dplot.loc<-function()
 				{
 					params <- par(bg="white")
+					on.exit(par(params))
 					# plot(vecD,log(tmp,10),ylab='log10 LR',xlab='Probability of Dropout',cex.lab=1.3,xlim=c(0,1),pch=19,ylim=range(log(tmp,10),finite=TRUE))
 					plot(vecD,log(tmp,10),ylab=expression(log[10](LR)),xlab=expression(Pr(D)),cex.lab=1.3,xlim=c(0.01,0.99),type='l',ylim=range(log(tmp,10),finite=TRUE),lty=1,xaxt='n')
 					axis(1,at=c(0.01,0.1,0.2,0.4,0.6,0.8,0.99))

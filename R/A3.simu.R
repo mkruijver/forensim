@@ -21,11 +21,11 @@
 		obsA <- peak1/(peak1+peak2+peak3)
 		obsB <- peak2/(peak1+peak2+peak3)
 		obsC<-peak3/(peak1+peak2+peak3)
-		
+
 		resid <- (expA-obsA)^2+(expB-obsB)^2+(expC-obsC)^2
 		genotypes<-c("AA,BC","BB,AC","CC,AB","AB,AC","BC,AC","AB,BC","BC,AA","AC,BB","AB,CC","AC,AB","AC,BC","BC,AB")
 
-		
+
 		Mx.Conditioned<-abs(c(peak1/(peak1+peak2+peak3),
 		peak2/(peak1+peak2+peak3),
 		peak3/(peak1+peak2+peak3),
@@ -50,8 +50,9 @@
 	{
 		Mx<-seq(0.1,0.9,by=0.05)
 		res<-sapply(Mx, function(i) threeAmod(i,peak1,peak2,peak3)$resid)
-		par(mar = c(4,4,2,3)+0.1,oma = c(1,2,0.3,5))
-		#log="y"
+		params <- par(mar = c(4,4,2,3)+0.1,oma = c(1,2,0.3,5))
+		on.exit(par(params))
+
 		plot(Mx,(res[1,]),type='n',lab=c(6,5,1),xlab="Mx (mixture proportion)",ylab="Residuals",cex.lab=1.2,las=1,
 		ylim=c(min(res),max(res)))
 		title("Three-allele model simulations",font=2)
@@ -67,8 +68,8 @@
 		legend(0.95,max(res),c("AA,BC","BB,AC","CC,AB","AB,AC","BC,AC","AB,BC","BC,AA","AC,BB","AB,CC","AC,AB","AC,BC","BC,AB","Obs. Mx"),
 		,pch =c(pchref,32),lty=2,col=c(col,'gray'),bg='white',xpd=NA,cex=1.2,
 		 box.lwd=2)
-	}	
-	
+	}
+
 	#three-allele model: likelihood estimation
 	threeAmodT<-function(peak1,peak2,peak3)
 	{
@@ -79,7 +80,7 @@
 		colnames(res)<-paste('Mx=',Mx,sep='')
 		minX<-which(res==min(res),arr.ind=TRUE)
 		minC<-signif(Mx[minX[,2]],digits=2)
-		minY<-row.names(minX)	
+		minY<-row.names(minX)
 		return(list(minY,minC,res))
 	}
 
@@ -90,13 +91,13 @@
 
     frame1 <- tkframe(tt, relief="groove", borderwidth=2)
     frame2 <- tkframe(tt, relief="groove", borderwidth=2)
-   
+
     xyframe <- tkframe(frame1, relief="groove", borderwidth=2)
     labframe <- tkframe(frame1, relief="groove", borderwidth=2)
     limframe <- tkframe(frame2, relief="groove", borderwidth=2)
     posframe <- tkframe(frame2, relief="groove", borderwidth=2)
     legframe <- tkframe(frame2, relief="groove", borderwidth=2)
-    
+
 #
 # Variables for text fields
 #
@@ -104,7 +105,7 @@
 	xy2var <- tclVar(1100)
 	xy3var<-  tclVar(1900)
 	mixvar <- tclVar(0.70)
-	
+
 # Title
 #
 	TFrame <- tkframe(tt, relief="groove")
@@ -123,9 +124,9 @@
 		if(p1<0){tkmessageBox(message="Invalid value for the peak height of allele #1",icon="error",type="ok")}
 		else{return(p1)}
 	}
-	
-	
-	
+
+
+
 	peak2<-function()
 	{
 		p2<-as.numeric(tclvalue(xy2var))
@@ -133,7 +134,7 @@
 		}
 		else{return(p2)}
 	}
-	
+
 	peak3<-function()
 	{
 		p3<-as.numeric(tclvalue(xy3var))
@@ -153,7 +154,7 @@
 # Labels frame
 #
 	lab.entry <- tkentry(labframe, textvariable=mixvar, width=8)
-	prop<-function() 
+	prop<-function()
 	{
 		Mx<-as.numeric(tclvalue(mixvar))
 		if(Mx>1 || Mx<0){
@@ -162,7 +163,7 @@
 		}
 		else{return(Mx)}
 		#print(Mx)
-		
+
 	}
 	#chooselab.but <- tkbutton(labframe, text="Set", command= function() prop())#function() print(tclvalue(mixvar)))
 	tkgrid(tklabel(labframe, text="- Mixture proportion  -",font=font3, foreground="blue"), columnspan=3)
@@ -172,7 +173,7 @@
 	tkpack(xyframe, labframe, side="left")
 	tkpack(frame1)
 
-# 
+#
 RCSFrame <- tkframe(tt, relief="groove")
 
 
@@ -219,8 +220,8 @@ propFunction<-function()
 		  tclarray[[i,j]] <- myRarray[i+1,j+1]
 		}
 	}
-	 
-	
+
+
 	myRarray2<-resgeno
 	dim(myRarray2)<-c(1,length(resgeno))
 	myRarray3<-c(resmix)
@@ -231,26 +232,26 @@ propFunction<-function()
 	for(k in 0:(length(resgeno)-1))
 	{
 		tclarray2[[0,k]] <- myRarray2[1,k+1]
-	}		
+	}
 	tclarray3 <- tclArray()
 	for(h in 0:(length(resmix)-1))
 	{
 		tclarray3[[0,h]] <- myRarray3[1,h+1]
-	}		
-	
-		
+	}
+
+
 	tclarray2 <- tclArray()
 	for(k in 0:(length(resgeno)-1))
 	{
 		tclarray2[[0,k]] <- myRarray2[1,k+1]
-	}		
+	}
 	tclarray3 <- tclArray()
 	for(h in 0:(length(resmix)-1))
 	{
 		tclarray3[[0,h]] <- myRarray3[1,h+1]
-	}		
-	
-		
+	}
+
+
 	save1<-function(filename1="simulation3.txt",filename2="likelihood3.txt")
 		{
 			#myRarray
@@ -263,7 +264,7 @@ propFunction<-function()
 		}
 		saveFunction<-function()
 		{
-			
+
 			ss<-tktoplevel()
 			SSframe <- tkframe(ss, relief="groove",width=35)
 			tkwm.title(ss,"")
@@ -276,10 +277,10 @@ propFunction<-function()
 			save1.butt<-tkbutton(ss, text="Enter", font=font3,command=function() save1(tclvalue(filevar1),tclvalue(filevar2)))
 			tkgrid(tklabel(SSframe,text="Simulations results",font=font4), filevar1.entry)
 			tkgrid(tklabel(SSframe,text="Maximum likelihood",font=font4), filevar2.entry)
-			tkgrid(filevar2.entry, save1.butt)		
+			tkgrid(filevar2.entry, save1.butt)
 			tkpack(SSframe)
 		}
-		
+
 		tclRequire("Tktable")
 		tt<-tktoplevel()
 		tkwm.title(tt,"Most likely genotypes combination")
@@ -288,7 +289,7 @@ propFunction<-function()
 		cols=length(resgeno),selectmode="extended",colwidth=10,rows=1,background="lightblue")
 		table3 <- tkwidget(tt,"table",variable=tclarray3,
 		cols=length(resmix),selectmode="extended",colwidth=10,rows=1,background="lightblue")
-		tit1<-tkwidget(tt,"label",text="Matrix of the residuals",font=font1,foreground="blue")	
+		tit1<-tkwidget(tt,"label",text="Matrix of the residuals",font=font1,foreground="blue")
 		tit2<-tkwidget(tt,"label",text="Maximum likelihood estimation results",font=font1,foreground="blue")
 		tit3<-tkwidget(tt,"label",text="Most likely genotype combinations",font=font1,foreground="blue")
 		tit4<-tkwidget(tt,"label",text="Corresponding mixture proportions",font=font1,foreground="blue")
@@ -296,13 +297,13 @@ propFunction<-function()
 		filelab<-tkwidget(tt,"label",text="-Save the results-",font=font3,foreground="blue")
 		save.butt<-tkbutton(tt, text="Save", font=font3,command=saveFunction)
 		tkpack(tit1,table1,tit3,table2,tit4,table3,save.butt)
-		
+
 	}
-	
-	
-		
+
+
+
 		#tkpack(filevar.entry,save1.butt,side="left")
-		
+
 
 filterFunction<-function()
 {
@@ -320,17 +321,17 @@ filterFunction<-function()
 	for(m in 0:12){
 	for (n in (0:1)){
 	  tab1array[[m,n]] <- tab1[m+1,n+1]}}
-	
+
 	saveHH<-function(name1="filter3.txt")
 		{
 			#myRarray
 			write.table(tab1,name1,row.names=FALSE,col.names=FALSE)
-				
-		}		
-			
+
+		}
+
 		saveFunction2<-function()
 		{
-			
+
 			hh<-tktoplevel()
 			HHframe<- tkframe(hh, relief="groove")
 			tkwm.title(hh,"Filenames")
@@ -341,12 +342,12 @@ filterFunction<-function()
 			saveHH.butt<-tkbutton(hh, text="Enter", font=font3,command=function() saveHH(tclvalue(filtervar)))
 			tkgrid(tklabel(HHframe,text="Genotypes filter",font=font4), filtervar.entry)
 			#tkgrid(tklabel(SSframe,text="Maximum likelihood",font=font4), filevar2.entry)
-			tkgrid(filtervar.entry, saveHH.butt)		
+			tkgrid(filtervar.entry, saveHH.butt)
 			tkpack(HHframe)
 		}
-		
-		
-		
+
+
+
 		tclRequire("Tktable")
 		tt2<-tktoplevel()
 		tkwm.title(tt2,"Genotypes filter")
@@ -355,14 +356,14 @@ filterFunction<-function()
 		tab1.tcl<-tkwidget(tt2,"table",variable=tab1array,rows=13,colwidth=18,cols=2,titlerows=1,background="white")
 		tkpack(tab1.tcl,save2.butt)
 		#tkpack(tab1.tit,tab1.tcl,save2.butt)
-		
-					
-	
+
+
+
 }
 	A1.but <- tkbutton(RCSFrame, text="Plot simulations",font=font3, command=plotFunction)#twoAmod())
 	A2.but <- tkbutton(RCSFrame, text="Simulation details", font=font3,command=propFunction)
 	A3.but <- tkbutton(RCSFrame, text="Genotype filter", font=font3,command=filterFunction)
-	tkgrid(A1.but,A2.but,A3.but,ipadx=20)	
+	tkgrid(A1.but,A2.but,A3.but,ipadx=20)
 	tkpack(RCSFrame)
 }
 
