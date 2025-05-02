@@ -6,21 +6,21 @@
 \description{ likEvid  allows the calculation of likelihood  for a piece of DNA evidence, for any number of replicates, any number of contributors, and when drop-in and drop-out are possible.
 }
 \usage{
-likEvid(Repliste, T, V, x, theta, prDHet, prDHom, prC, freq)
+likEvid(Repliste, Tg, Vg, x, theta, prDHet, prDHom, prC, freq)
 }
 
 
 \arguments{
 
   \item{Repliste}{vector of alleles present at a given locus for any number of replicates. If there are two replicates, showing alleles 12,13, and 14 respectively, then \code{Repliste} should be given as c(12,13,0,14), where the 0 is used as a separator. An empty replicate is simply 0. For example, replicates (12,13) and and one empty replicate must be given as: c(12,14,0,0). }
-  
-  
-   
-  \item{T}{ vector of genotypes for the known contributors under Hp. Genotype 12/17 should be given as a vector c(12,17)
+
+
+
+  \item{Tg}{ vector of genotypes for the known contributors under Hp. Genotype 12/17 should be given as a vector c(12,17)
  and genotypes 12/17,14/16, should be given as a unique vector: c(12,17,14,16). If T is empty, set to 0.}
 
- \item{V}{vector of genotypes for the known non-contributors (see References section) under Hp. See \code{T} for format. }
-  
+ \item{Vg}{vector of genotypes for the known non-contributors (see References section) under Hp. See \code{T} for format. }
+
   \item{x}{Number of unknown individuals under H. Set to 0 if there are no unknown contributors.}
   \item{theta}{thete correction, value must be taken in [0,1)}
 
@@ -64,12 +64,12 @@ d10<-ngm$tab$D10
 # evaluate the evidence under Hp; contributors are the suspect and one unknown,
 # dropout probabilities for the suspect and the unknown are the same: 0.2 for heterozygotes,
 # and 0.1 for homozygotes.
-likEvid(Repliste=c(12,13,14),T=c(12,13),V=0,x=1,theta=0,prDHet=c(0.2,0.2),
+likEvid(Repliste=c(12,13,14),Tg=c(12,13),Vg=0,x=1,theta=0,prDHet=c(0.2,0.2),
 prDHom=c(0.04,0.04),prC=0,
 freq=d10)
 #  evaluate the evidence under Hd; contributors are two unknown people, the dropout
 # probabilities for the unknowns is kept the same under Hd
-likEvid(Repliste=c(12,13,14),T=0,V=0,x=2,theta=0,prDHet=c(0.2,0.2),
+likEvid(Repliste=c(12,13,14),Tg=0,Vg=0,x=2,theta=0,prDHet=c(0.2,0.2),
 prDHom=c(0.04,0.04),prC=0,freq=d10)
 }
 \keyword{htest}
