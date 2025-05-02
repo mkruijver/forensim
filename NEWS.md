@@ -1,3 +1,8 @@
+# forensim 4.3.2
+
+* Add Tcl/Tk package TkTable to SystemRequirements
+* Resubmit to CRAN
+
 # forensim 4.3.1
 
 * Add `NEWS.md` file to track changes to the package
