@@ -476,7 +476,7 @@ LRmixTK <-function(verbose = TRUE)
   	 		 if(is.list(TdFinal )){ tmpTd<-unlist(TdFinal[jj])}
 			 else{ tmpTd<-0}
                    Vd<-unlist(VdFinal[[jj]])
-        	       hd_val = likEvid(Repliste=(rep0),T=tmpTd,V=Vd,x=xd,theta=theta0,prDHet=rep(drop0,5),prDHom=rep(drop0^2,5),prC=as.numeric(tclvalue(prC)), freq=data0[[jj]]) # V does not contribute to replicate probability)
+        	       hd_val = likEvid(Repliste=(rep0),Tg=tmpTd,Vg=Vd,x=xd,theta=theta0,prDHet=rep(drop0,5),prDHom=rep(drop0^2,5),prC=as.numeric(tclvalue(prC)), freq=data0[[jj]]) # V does not contribute to replicate probability)
 
 			 #numerator Pr(E|Hp). G is all possible genotypes:
                    hp_val <- rep(NA,M) #vector for hp_values of random man
@@ -493,7 +493,7 @@ LRmixTK <-function(verbose = TRUE)
                     randoman <- as.numeric(G[,unGsampled[uu]]) #get allele-frequence of unique random man
         		  if(!is.null(TpFinal)){tp<-c(unlist(TpFinal[[jj]]), randoman)}
 			  else{tp<-randoman}
-                    hp_val[ Gsampled==unGsampled[uu] ] <-likEvid(Repliste=(rep0),T=tp,V=0,x=xp,theta=theta0,prDHet=rep(drop0,5),prDHom=rep(drop0^2,5),prC=as.numeric(tclvalue(prC)),freq=data0[[jj]]) #calculate for unique random man
+                    hp_val[ Gsampled==unGsampled[uu] ] <-likEvid(Repliste=(rep0),Tg=tp,Vg=0,x=xp,theta=theta0,prDHet=rep(drop0,5),prDHom=rep(drop0^2,5),prC=as.numeric(tclvalue(prC)),freq=data0[[jj]]) #calculate for unique random man
                    } #end for each unique calculation
 		 	 lr0 <- lr0*hp_val/hd_val #multiply with LR-value for current locus for all randoms
      			 print_if_verbose(paste(jj, 'completed','\n'))
@@ -698,8 +698,8 @@ LRmixTK <-function(verbose = TRUE)
 				#numerator Pr(E|Hp)
 				drop0<-as.numeric(tclvalue(prD))
 				tp<-unlist(TpFinal[[jj]])
-				locus.hp[jj]<-likEvid(Repliste=(rep0),T=tp,V=0,x=xp,theta=theta0,prDHet=rep(drop0,length(tp)/2 + xp),prDHom=rep(drop0^2,length(tp)/2 + xp),prC=as.numeric(tclvalue(prC)),freq=data0[[jj]])
-				locus.hd[jj]<-likEvid(Repliste=(rep0),T=tmpTd,V=unlist(VdFinal[[jj]]),x=xd,theta=theta0,prDHet=rep(drop0,length(tmpTd)/2 + xd),prDHom=rep(drop0^2,length(tmpTd)/2 + xd),prC=as.numeric(tclvalue(prC)), freq=data0[[jj]])# V does not contribute to replicate probability
+				locus.hp[jj]<-likEvid(Repliste=(rep0),Tg=tp,Vg=0,x=xp,theta=theta0,prDHet=rep(drop0,length(tp)/2 + xp),prDHom=rep(drop0^2,length(tp)/2 + xp),prC=as.numeric(tclvalue(prC)),freq=data0[[jj]])
+				locus.hd[jj]<-likEvid(Repliste=(rep0),Tg=tmpTd,Vg=unlist(VdFinal[[jj]]),x=xd,theta=theta0,prDHet=rep(drop0,length(tmpTd)/2 + xd),prDHom=rep(drop0^2,length(tmpTd)/2 + xd),prC=as.numeric(tclvalue(prC)), freq=data0[[jj]])# V does not contribute to replicate probability
 			}
 			# create a table of the results that will be exported in an Excel file
 LRtab<-cbind.data.frame('Locus'=c(loc0,'product'),
@@ -1160,10 +1160,10 @@ write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FA
 
 						#numerator Pr(E|Hp)
 						d<-vecD[kkk]
-						tmp.hp<-c(tmp.hp,likEvid(Repliste=(rep0),T=tp,V=0,x=xp,theta=theta0,prDHet=rep(d,length(tp)/2 + xp),prDHom=rep(d^2,length(tp)/2 + xp),prC=cc,freq=data0[[mark0]]))
+						tmp.hp<-c(tmp.hp,likEvid(Repliste=(rep0),Tg=tp,Vg=0,x=xp,theta=theta0,prDHet=rep(d,length(tp)/2 + xp),prDHom=rep(d^2,length(tp)/2 + xp),prC=cc,freq=data0[[mark0]]))
 
 
-						tmp.hd<-c(tmp.hd,likEvid(Repliste=(rep0),T=tmpTd,V=tv,x=xd,theta=theta0,prDHet=rep(d,length(tmpTd)/2 + xd),prDHom=rep(d^2,length(tmpTd)/2 + xd),prC=cc, freq=data0[[mark0]]))# V does not contribute to replicate probability
+						tmp.hd<-c(tmp.hd,likEvid(Repliste=(rep0),Tg=tmpTd,Vg=tv,x=xd,theta=theta0,prDHet=rep(d,length(tmpTd)/2 + xd),prDHom=rep(d^2,length(tmpTd)/2 + xd),prC=cc, freq=data0[[mark0]]))# V does not contribute to replicate probability
 						# V does not contribute to replicate probability)
 
 					}
