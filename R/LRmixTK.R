@@ -496,7 +496,7 @@ LRmixTK <-function(verbose = TRUE)
                     hp_val[ Gsampled==unGsampled[uu] ] <-likEvid(Repliste=(rep0),T=tp,V=0,x=xp,theta=theta0,prDHet=rep(drop0,5),prDHom=rep(drop0^2,5),prC=as.numeric(tclvalue(prC)),freq=data0[[jj]]) #calculate for unique random man
                    } #end for each unique calculation
 		 	 lr0 <- lr0*hp_val/hd_val #multiply with LR-value for current locus for all randoms
-     			 cat(paste(jj, 'completed','\n'))
+     			 print_if_verbose(paste(jj, 'completed','\n'))
 			} #end 'jj' for each locus
 
 			print_if_verbose('===================================')
@@ -1145,7 +1145,6 @@ write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FA
 
 				for(jjj in (loc0))
 				{
-					# cat(paste(round(jjj*100/length(loc0)),'%',sep=''),'completed','\n')
 					mark0<-jjj
 					print_if_verbose(mark0)
 					rep0<-cspFinal[[jjj]]
