@@ -779,7 +779,6 @@ LRtab<-cbind.data.frame('Locus'=c(loc0,'product'),
 				aaaa3<-paste('VICTIM FILE:',(tclvalue(filePath3)),sep='\n')
 				aaaa4<-paste('SELECTED LOCI:',tclvalue(locus), sep='\n')
 				aaaa5<-paste('SELECTED REPLICATES:',tclvalue(repl), sep='\n')
-				# options(warn=-1)
 				# write.table(x=header,sep=',',file=fileName)
 				write.table(aaaa1,file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
 				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
@@ -834,94 +833,94 @@ write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FA
 			}
 			exportFile2<-function(tmp,r0,r1)
 			{
-				options(warn=-1)
-				ff<-tktoplevel()
-				Fframe<- tkframe(ff, relief="groove")
-				tkwm.title(ff,"Filenames")
-				tkgrid(tklabel(Fframe, text="===== Enter filename ====",font='courrier 12',foreground="darkblue"), columnspan=9)
-				filtervar<- tclVar('sensitivity.txt')
-				filtervar.entry <- tkentry(Fframe, textvariable=filtervar, width=12)
-				saveF.butt<-tkbutton(Fframe, text="Enter",fg="darkblue",font='courrier 8',command=function() functionMAJ() )
-				# function called when exporting, function of tclvalue (updated for each run)
-				functionMAJ<-function(){
-				# get the file chosen by the user
-				filen<-tclvalue(filtervar)
-			    # files
-				# write.table('____________________________________________________',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table('===== Log file: Sensitivity analysis =====',file=filen,append=FALSE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+			  suppressWarnings({
+  				ff<-tktoplevel()
+  				Fframe<- tkframe(ff, relief="groove")
+  				tkwm.title(ff,"Filenames")
+  				tkgrid(tklabel(Fframe, text="===== Enter filename ====",font='courrier 12',foreground="darkblue"), columnspan=9)
+  				filtervar<- tclVar('sensitivity.txt')
+  				filtervar.entry <- tkentry(Fframe, textvariable=filtervar, width=12)
+  				saveF.butt<-tkbutton(Fframe, text="Enter",fg="darkblue",font='courrier 8',command=function() functionMAJ() )
+  				# function called when exporting, function of tclvalue (updated for each run)
+  				functionMAJ<-function(){
+  				# get the file chosen by the user
+  				filen<-tclvalue(filtervar)
+  			    # files
+  				# write.table('____________________________________________________',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table('===== Log file: Sensitivity analysis =====',file=filen,append=FALSE,row.names=FALSE,col.names=FALSE,quote=FALSE)
 
-				write.table('============= Input files ================',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table('============= Input files ================',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
 
-				aaaa1<-paste('SAMPLE FILE:',(tclvalue(filePath)),sep='\n')
-				aaaa2<-paste('SUSPECT FILE:',(tclvalue(filePath2)),sep='\n')
-				aaaa3<-paste('VICTIM FILE:',(tclvalue(filePath3)),sep='\n')
-				aaaa4<-paste('SELECTED LOCI:',tclvalue(locus), sep='\n')
-				aaaa5<-paste('SELECTED REPLICATES:',tclvalue(repl), sep='\n')
-				# options(warn=-1)
-				# write.table(x=header,sep=',',file=fileName)
-				write.table(aaaa1,file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table(aaaa2,file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table(aaaa3,file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table(aaaa4,file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table(aaaa5,file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				# write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				aaaa1<-paste('SAMPLE FILE:',(tclvalue(filePath)),sep='\n')
+  				aaaa2<-paste('SUSPECT FILE:',(tclvalue(filePath2)),sep='\n')
+  				aaaa3<-paste('VICTIM FILE:',(tclvalue(filePath3)),sep='\n')
+  				aaaa4<-paste('SELECTED LOCI:',tclvalue(locus), sep='\n')
+  				aaaa5<-paste('SELECTED REPLICATES:',tclvalue(repl), sep='\n')
+  				# write.table(x=header,sep=',',file=fileName)
+  				write.table(aaaa1,file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table(aaaa2,file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table(aaaa3,file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table(aaaa4,file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table(aaaa5,file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				# write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
 
-				write.table('============ User parameters =============',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table(paste('Drop-in value:',tclvalue(prC),sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				# theta
-				write.table(paste('Theta value:',tclvalue(theta),sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				# xp under Hp
-				write.table(paste('Unknowns under Hp:',xp,sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				# xd under Hd
-				write.table(paste('Unknowns under Hd:',xd,sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				#---- Hypotheses
-write.table('=============== Hypotheses ===============',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-
-
-if(!is.null(indVicHp)){
-write.table(paste('Under Hp:', paste(suspectID,collapse=' + '), '+',xp,'unknown(s)','+',paste(indVicHp,collapse=' + '),sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)}
-else{write.table(paste('Under Hp:', paste(suspectID,collapse=' + '), '+',xp,'unknown(s)',sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)}
-
-if(!is.null(indVicHd)){
-write.table(paste('Under Hd:',xd,'unknown(s)','+',paste(indVicHd,collapse=' + '),sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)}
-else{write.table(paste('Under Hd:',xd,'unknown(s)',sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)}
+  				write.table('============ User parameters =============',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table(paste('Drop-in value:',tclvalue(prC),sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				# theta
+  				write.table(paste('Theta value:',tclvalue(theta),sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				# xp under Hp
+  				write.table(paste('Unknowns under Hp:',xp,sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				# xd under Hd
+  				write.table(paste('Unknowns under Hd:',xd,sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				#---- Hypotheses
+  write.table('=============== Hypotheses ===============',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
 
 
+  if(!is.null(indVicHp)){
+  write.table(paste('Under Hp:', paste(suspectID,collapse=' + '), '+',xp,'unknown(s)','+',paste(indVicHp,collapse=' + '),sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)}
+  else{write.table(paste('Under Hp:', paste(suspectID,collapse=' + '), '+',xp,'unknown(s)',sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)}
 
-write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-
-
-				#------------------- drop-out ranges
-				#-----------------------------------------------------#
-				write.table('======== Drop-out ranges: under Hp ========',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table(paste('5% percentile',r0[1],sep=" "),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table(paste('95% percentile',r0[2],sep=" "),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-
-				write.table('======== Drop-out ranges: under Hd ========',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table(paste('5% percentile',r1[1],sep=" "),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table(paste('95% percentile',r1[2],sep=" "),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				# write.table('____________________________________________________',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				#-----------------------------------------------------#
-				# LRs
-				# write.table('-----------------------------------------',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE)
-				write.table('==== Likelihoods & likelihood ratios =====',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
-				write.table(tmp,file=filen,row.names=FALSE,append=TRUE,quote=FALSE)
-				# write.table('-----------------------------------------',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE)
+  if(!is.null(indVicHd)){
+  write.table(paste('Under Hd:',xd,'unknown(s)','+',paste(indVicHd,collapse=' + '),sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)}
+  else{write.table(paste('Under Hd:',xd,'unknown(s)',sep=' '),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)}
 
 
-				}
 
-				tkgrid(filtervar.entry, saveF.butt)
-				tkpack(Fframe,padx=12,pady=18,side="left")
+  write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+
+
+  				#------------------- drop-out ranges
+  				#-----------------------------------------------------#
+  				write.table('======== Drop-out ranges: under Hp ========',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table(paste('5% percentile',r0[1],sep=" "),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table(paste('95% percentile',r0[2],sep=" "),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+
+  				write.table('======== Drop-out ranges: under Hd ========',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table(paste('5% percentile',r1[1],sep=" "),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table(paste('95% percentile',r1[2],sep=" "),file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table('\n',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				# write.table('____________________________________________________',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				#-----------------------------------------------------#
+  				# LRs
+  				# write.table('-----------------------------------------',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE)
+  				write.table('==== Likelihoods & likelihood ratios =====',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE,quote=FALSE)
+  				write.table(tmp,file=filen,row.names=FALSE,append=TRUE,quote=FALSE)
+  				# write.table('-----------------------------------------',file=filen,append=TRUE,row.names=FALSE,col.names=FALSE)
+
+
+  				}
+
+  				tkgrid(filtervar.entry, saveF.butt)
+  				tkpack(Fframe,padx=12,pady=18,side="left")
+  			}) # end suppressWarnings block
 			}
 			# function which displays hep for sensitivity analysis
 			infoSP<-function()
