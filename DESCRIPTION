@@ -1,13 +1,21 @@
 Package: forensim
 Type: Package
-Title: Interpretation of forensic DNA mixtures
-Version: 4.3
-Date: 2013-09-14
-Author: Hinda Haned <contact@hindahaned.info>
-Maintainer: Hinda Haned <contact@hindahaned.info>
+Title: Interpretation of Forensic DNA Mixtures
+Version: 4.3.1
+Date: 2025-05-02
+Authors@R:
+  c(person(given = "Hinda",
+           family = "Haned",
+           role = c("aut"),
+           email = "hi.haned@gmail.com"))
+Maintainer: Maarten Kruijver <maarten.kruijver@esr.cri.nz>
 Depends: methods, tcltk,tcltk2,tkrplot
 Description: Statistical methods and simulation tools for the
-        interpretation of forensic DNA mixtures
+        interpretation of forensic DNA mixtures. The methods
+        implemented are described in
+        Haned et al. (2011) <doi:10.1111/j.1556-4029.2010.01550.x>,
+        Haned et al. (2012) <doi:10.1016/j.fsigen.2012.11.002> and
+        Gill & Haned (2013) <doi:10.1016/j.fsigen.2012.08.008>.
 License: GPL (>= 2)
 LazyLoad: yes
 Collate: classes_definitions.R classes_constructors.R accessors.R
