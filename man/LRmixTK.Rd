@@ -5,7 +5,10 @@
 \description{
 User-friendly graphical user interface for the LR calculator LR. }
 \usage{
-LRmixTK()
+LRmixTK(verbose)
+}
+\arguments{
+  \item{verbose}{if TRUE, progress is written to the console}
 }
 \author{Hinda Haned \email{contact@hindahaned.info}}
 \keyword{htest}
