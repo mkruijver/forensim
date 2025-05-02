@@ -8,6 +8,10 @@ Authors@R:
            family = "Haned",
            role = c("aut"),
            email = "hi.haned@gmail.com"),
+    person(given = "Oyvind",
+           family = "Bleka",
+           role = c("ctb"),
+		       email = "oyvble@hotmail.com"),
     person("Maarten", "Kruijver", , 
            "maarten.kruijver@esr.cri.nz", role = c("cre"),
            comment = c(ORCID = "0000-0002-6890-7632")))
