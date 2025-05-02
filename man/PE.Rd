@@ -33,7 +33,7 @@ between alleles. The formula of the exclusion probability that allows taking int
  references section.
 }
 
-\return{Numeric vector with exclusion probability (by locus if \code{byloc = TRUE}).}
+\value{Numeric vector with exclusion probability (by locus if \code{byloc = TRUE}).}
 
 \references{
 Clayton T, Buckleton JS. Mixtures. In: Buckleton JS, Triggs CM, Walsh SJ, editors.

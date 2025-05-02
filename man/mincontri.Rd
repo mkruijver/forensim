@@ -18,7 +18,7 @@ mincontri(mix, loc = NULL)
   to all loci }
 }
 
-\value(Integer with minium number of contibutors.)
+\value{Integer with minium number of contibutors.}
 
 \author{Hinda Haned \email{contact@hindahaned.info} }
 
