@@ -7,7 +7,10 @@ Authors@R:
   c(person(given = "Hinda",
            family = "Haned",
            role = c("aut"),
-           email = "hi.haned@gmail.com"))
+           email = "hi.haned@gmail.com"),
+    person("Maarten", "Kruijver", , 
+           "maarten.kruijver@esr.cri.nz", role = c("cre"),
+           comment = c(ORCID = "0000-0002-6890-7632")))
 Maintainer: Maarten Kruijver <maarten.kruijver@esr.cri.nz>
 Depends: methods, tcltk,tcltk2,tkrplot
 Description: Statistical methods and simulation tools for the
