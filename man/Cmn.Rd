@@ -20,7 +20,7 @@ likelihood of the observed alleles in a mixed DNA stain conditional on the numbe
 
 \value{Numeric with the number of combinations.}
 
-\author{Hinda Haned  <contact@hindahaned.info>}
+\author{Hinda Haned  <hinda@owlsandarrows.nl>}
 
 
 \seealso{ \code{\link{comb}} for all possible combinations of m elements among n with repetitions}

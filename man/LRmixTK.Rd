@@ -12,5 +12,5 @@ LRmixTK(verbose)
 }
 \value{No return value, called to show GUI.}
 
-\author{Hinda Haned \email{contact@hindahaned.info}}
+\author{Hinda Haned \email{hinda@owlsandarrows.nl}}
 \keyword{htest}

@@ -16,7 +16,7 @@ nball(mix, byloc = FALSE)
 
 \value{If \code{byloc=TRUE}, the number of alleles by locus; otherwise the sum.}
 
-\author{Hinda Haned  <contact@hindahaned.info>}
+\author{Hinda Haned  <hinda@owlsandarrows.nl>}
 
 
 \seealso{  \code{\link{simumix}} }

@@ -45,7 +45,7 @@ Curran, J. M.; Gill, P. & Bill, M. R. Interpretation of repeat measurement DNA e
 }
 
 
-\author{Hinda Haned \email{contact@hindahaned.info}}
+\author{Hinda Haned \email{hinda@owlsandarrows.nl}}
 
 
 

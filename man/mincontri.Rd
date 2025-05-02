@@ -20,7 +20,7 @@ mincontri(mix, loc = NULL)
 
 \value{Integer with minium number of contibutors.}
 
-\author{Hinda Haned \email{contact@hindahaned.info} }
+\author{Hinda Haned \email{hinda@owlsandarrows.nl} }
 
 \seealso{\code{\link{likestim}} for the estimation of the number of contributors through likelihood maximization }
 \examples{

@@ -53,7 +53,7 @@ tandem repeat loci.\emph{ Nucleic Acids Research} 2005, 33(2): 632-643.
 
 \seealso{ \code{\link{simPCR2TK}}}  
 
-\author{ Hinda Haned  \email{contact@hindahaned.info} }
+\author{ Hinda Haned  \email{hinda@owlsandarrows.nl} }
 
 
 

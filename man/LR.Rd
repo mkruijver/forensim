@@ -50,7 +50,7 @@ Curran, J. M.; Gill, P. & Bill, M. R. Interpretation of repeat measurement DNA e
 }
 
 
-\author{Hinda Haned \email{contact@hindahaned.info}}
+\author{Hinda Haned \email{hinda@owlsandarrows.nl}}
 
 
 \value{List with named elements for numerator likelihood (\code{num}), denominator likelihood (\code{deno}) and likelihood ratio (\code{LR})}

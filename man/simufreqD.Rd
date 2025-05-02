@@ -51,7 +51,7 @@ Wright S. The genetical structure of populations. Ann Eugen 1951;15:323-354.
 }
 
 
-\author{Hinda Haned \email{contact@hindahaned.info}}
+\author{Hinda Haned \email{hinda@owlsandarrows.nl}}
 \note{ 
  The code used here  for the generation of random Dirichlet deviates was previously implemented in the 
  gtools library.}
