@@ -8,7 +8,9 @@ likEvid<-function(Repliste,Tg,Vg,x,theta,prDHet,prDHom,prC,freq)
 	freq[as.character(rare)]<-1/(2*2085)
 	# rare<-which(Repliste2[[j]] %in% in freq)}
 	# warning('allele',rare,'has been added to the database frequency')
-	print(paste('WARNING: allele',rare,'has been added to the database with frequency',1/(2*2085),sep=' '))
+	warning(paste('WARNING: allele',
+	              rare,'has been added to the database with frequency',
+	              1/(2*2085),sep=' '))
 
 	}
 
