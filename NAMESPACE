@@ -10,3 +10,10 @@ tcltk,
    tcltk2,
   tkrplot
 )
+
+importFrom("graphics", "abline", "arrows", "axis", "grid", "hist",
+               "legend", "lines", "par", "points", "title")
+importFrom("stats", "binomial", "ecdf", "glm", "na.omit", "predict",
+               "quantile", "rbinom", "residuals", "rgamma", "rnorm",
+               "runif")
+importFrom("utils", "help", "read.csv", "read.table", "write.table")
