@@ -1,7 +1,7 @@
 Package: forensim
 Type: Package
 Title: Interpretation of Forensic DNA Mixtures
-Version: 4.3.2
+Version: 4.3.3
 Date: 2025-05-02
 Authors@R:
   c(person(given = "Hinda",
