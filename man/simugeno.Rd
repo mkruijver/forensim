@@ -1,4 +1,5 @@
 \encoding{UTF-8}
+\doctype{methods}
 \name{simugeno}
 \alias{simugeno-class}
 \alias{names,simugeno-method}

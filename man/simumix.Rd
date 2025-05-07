@@ -1,4 +1,5 @@
 \encoding{UTF-8}
+\doctype{methods}
 \name{simumix}
 \alias{simumix-class}
 \alias{names,simumix-method}

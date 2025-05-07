@@ -1,4 +1,5 @@
 \encoding{UTF-8}
+\doctype{package}
 \name{forensim-package}
 \alias{forensim-package}
 \alias{forensim}

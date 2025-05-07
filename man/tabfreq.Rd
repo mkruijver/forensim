@@ -1,4 +1,5 @@
 \encoding{UTF-8}
+\doctype{methods}
 \name{tabfreq}
 \alias{tabfreq-class}
 \alias{names,tabfreq-method}
