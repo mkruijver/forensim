@@ -1,5 +1,5 @@
 \encoding{UTF-8}
-\doctype{methods}
+\docType{methods}
 \name{tabfreq}
 \alias{tabfreq-class}
 \alias{names,tabfreq-method}
@@ -16,7 +16,7 @@
 	\code{tab}	gives allele frequencies  in each population  }
      \item{\code{which.loc}:}{ character vector giving the names of the loci}
      \item{\code{pop.names}:}{  factor of populations names (optional)}
-	
+
   }}
 
 
@@ -27,7 +27,7 @@
     \item{names}{\code{signature(x = "tabfreq")}}: gives the names of the attributes of a tabfreq object
     \item{show}{\code{signature(object = "tabfreq")}}:  shows a tabfreq object
 	\item{print}{\code{signature(object="tabfreq")}}: prints a tabfreq object
-	 
+
 	 }
 }
 
@@ -35,7 +35,7 @@
 
 
 \seealso{
-	 \code{\link{as.tabfreq}}, \code{\link{is.tabfreq}} and \code{\link{simugeno}} for genotypes simulation from allele frequencies stored in a \code{tabfreq} object} 
+	 \code{\link{as.tabfreq}}, \code{\link{is.tabfreq}} and \code{\link{simugeno}} for genotypes simulation from allele frequencies stored in a \code{tabfreq} object}
 
 
 
